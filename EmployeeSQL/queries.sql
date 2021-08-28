@@ -52,3 +52,17 @@ dept_emp.dept_no=departments.dept_no
 INNER JOIN employees ON
 dept_emp.emp_no=employees.emp_no
 WHERE departments.dept_name LIKE '%Sales%'
+
+--7 List all employees in the Sales and Development departments,
+--including their employee number, last name, first name, and department name.
+SELECT dept_emp.emp_no,
+		employees.last_name,
+		employees.first_name,
+		departments.dept_name
+FROM departments
+INNER JOIN dept_emp ON
+dept_emp.dept_no=departments.dept_no
+INNER JOIN employees ON
+dept_emp.emp_no=employees.emp_no
+WHERE departments.dept_name LIKE '%Sales%' 
+OR departments.dept_name LIKE '%Development%'
