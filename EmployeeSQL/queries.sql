@@ -38,4 +38,17 @@ dept_emp.emp_no=employees.emp_no,
 --#is “Hercules” and last names begin with “B.”
 SELECT first_name, last_name, sex
 FROM EMPLOYEES
-WHERE first_name LIKE 'Hercules%' and last_name LIKE 'B%'
+WHERE first_name LIKE '%Hercules%' and last_name LIKE 'B%';
+
+--#6 List all employees in the Sales department, 
+--including their employee number, last name, first name, and department name.
+SELECT dept_emp.emp_no,
+		employees.last_name,
+		employees.first_name,
+		departments.dept_name
+FROM departments
+INNER JOIN dept_emp ON
+dept_emp.dept_no=departments.dept_no
+INNER JOIN employees ON
+dept_emp.emp_no=employees.emp_no
+WHERE departments.dept_name LIKE '%Sales%'
